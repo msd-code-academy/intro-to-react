@@ -43,14 +43,14 @@ $('input').val('cde')
 
 Can we do better?
 
-## React - Hello World
+## React - Hello World @honza 30 mins
 
-## Props
+## Props @kuba 30 mins
 
-## State
+## State @honza 30 mins
 
-## Shared State
+## Shared State @kuba 30 mins
 
-## React Router
+## React Router @honza 30 mins
 
-##
+## React Create App @kuba 30 mins
