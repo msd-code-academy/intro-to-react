@@ -45,6 +45,12 @@ Can we do better?
 
 ## React - Hello World @honza 30 mins
 
+* React Components (class)
+* JSX
+* Class and Functional components
+
+* Cvičení
+
 ## Props @kuba 30 mins
 
 ## State @honza 30 mins
