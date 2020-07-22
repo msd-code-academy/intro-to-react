@@ -43,6 +43,8 @@ $('input').val('cde')
 
 Can we do better?
 
+Na začátku uvedeme, že se budeme snažit vytvořit vyhledávač, říkejme mu třeba Gogle :)
+
 ## React - Hello World @honza 30 mins
 
 * React Components (class)
@@ -53,6 +55,9 @@ Can we do better?
 
 ## Props @kuba 30 mins
 
+* K čemu jsou propsy a jak je používat
+* Základní použití CSS stylů
+
 ## State @honza 30 mins
 
 ## Shared State @kuba 30 mins
@@ -60,3 +65,10 @@ Can we do better?
 ## React Router @honza 30 mins
 
 ## React Create App @kuba 30 mins
+
+## Zmínit
+
+* Základní použití CSS stylů
+* Použití linterů
+* Testování
+* Pro import `index.jsx` souborů stačí uvést složku, ve které ten soubor je
