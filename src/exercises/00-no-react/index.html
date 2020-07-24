@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Sarch</title>
+    <link href="../../index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div className="App">
+      <header>
+        <img />
+        <span>Gmail</span>
+      </header>
+      <div>
+        <div>
+          <div class="logo"></div>
+          <div class="input">
+            <img class="search-icon" src="../../search.svg">
+            <input id="search-text" value="abc"/>
+          </div>
+          <div class="buttons">
+            <button id="search-button">Google Search</button>
+            <button>I'm Feeling Lucky</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2>Results for <span id="search-text-results"></span></h2>
+      </div>
+    </div>
+    <script>
+      document.getElementById('search-button').onclick = (event) => {
+        event.preventDefault()
+
+        const searchText = document.getElementById('search-text').value
+        document.getElementById('search-text-results').innerText = searchText
+      }
+    </script>
+  </body>
+</html>
