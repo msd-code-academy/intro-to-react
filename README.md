@@ -1,29 +1,38 @@
 # Vytváření webových aplikací v Reactu
 
-## HTML + CSS + JavaScript ~= Webová aplikace
+- Začátek: 18:05
+- Přestávka (10 minut): 19:30 - 19:40
+- Struktura
+  - Intro
+  - 6 navazujících bloků
+  - Každý blok
+    - ~= 30 minut
+    - Teoretický úvod
+    - Praktická ukázka
+    - Krátké cvičení
 
-*stranka1.html*
+---
+
+## HTML + CSS + JavaScript ~= Webová aplikace ## Honza
+
+- Webové stránky a aplikace se skládají z několika částí
+  - HTML - obsah
+  - CSS - Vzhled
+  - JavaScript - interaktivita/změny
+
+### HTML
 ```
 <html>
   <head>
-    <title>Testovaci stranka</title>
+    <title>Testovací stránka</title>
   </head>
   <body>
-    <div className="App">
-      <header className="App-header">
-        logo, navigation, ...
+    <div>
+      <header>
+        Logo
       </header>
       <div>
-        <div>
-          Search: <input value="abc"/>
-          <button>Go</button>
-        </div>
-        <div>
-          Results for abc:
-          <div>
-            <h2>Result 1</h2>
-            Long description </div>
-        </div>
+        Obsah
       </div>
       <footer>
         MIT License
@@ -33,17 +42,25 @@
 </html>
 ```
 
+### CSS
 ```
-document.getElementsByTagName('input')[0].value = 'cde'
+h1 {
+  color: blue;
+}
+```
+
+### Javascript
+```
+document.getElementsByTagName('input')[0].value = 'abc'
 ```
 or
 ```
-$('input').val('cde')
+$('input').val('abc')
 ```
 
-Can we do better?
+> Ukázka 1: 00-no-react/index.html
 
-Na začátku uvedeme, že se budeme snažit vytvořit vyhledávač, říkejme mu třeba Gogle :)
+---
 
 ## React - Hello World @honza 30 mins
 
