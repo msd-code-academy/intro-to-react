@@ -5,9 +5,6 @@ import '../../index.css'
 
 export class App extends React.Component {
 
-  state = {
-    searchText: 'abc'
-  }
   render() {
     return (
       <div className="App">
@@ -20,7 +17,7 @@ export class App extends React.Component {
             <div className="logo"></div>
             <div className="input">
               <img className="search-icon" src={searchLogo} />
-              <input id="search-text" value={this.state.searchText} onChange={(e) => this.setState({searchText: e.target.value})} />
+              <input id="search-text" value="abc" />
             </div>
             <div className="buttons">
               <button id="search-button">Google Search</button>
@@ -29,7 +26,10 @@ export class App extends React.Component {
           </div>
         </div>
         <div>
-          <h2>Results for <span id="search-text-results">{this.state.searchText}</span></h2>
+          <h2>Results for <span id="search-text-results">abc</span></h2>
+
+          {/* TODO: add few static search results shown in a <table></table> */}
+
         </div>
       </div>
     );

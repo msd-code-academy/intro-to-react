@@ -9,11 +9,11 @@
     - ~= 30 minut
     - Teoretický úvod
     - Praktická ukázka
-    - Krátké cvičení
+    - Krátké samostatné cvičení
 
 ---
 
-## HTML + CSS + JavaScript ~= Webová aplikace ## Honza
+## HTML + CSS + JavaScript ~= Webová aplikace @Honza
 
 - Webové stránky a aplikace se skládají z několika částí
   - HTML - obsah
@@ -58,22 +58,84 @@ or
 $('input').val('abc')
 ```
 
-> Ukázka 1: 00-no-react/index.html
+> Ukázka 0: 00-no-react/index.html
 
 ---
 
 ## React - Hello World @honza 30 mins
 
-* React Components (class)
-* JSX
-* Class and Functional components
+* JavaScript library for building user interfaces
+* Combines JavaScript and HTML => JSX
+* Components
+  * Main building blocks
+  * Several ways how to create components
 
-* Cvičení
+*class*
+```
+class Search extends React.Component {
+  render() {
+    return (
+      <div>Search</div>
+    );
+  }
+}
+```
+
+*function*
+```
+function Search() {
+  return (
+    <div>Search</div>
+  );
+}
+```
+```
+const Search => () {
+  return (
+    <div>Search</div>
+  );
+}
+```
+
+* Components nesting
+
+```
+
+const SearchButton => () {
+  return (
+    <button><i className="search-icon" />Search</button>
+  );
+}
+
+const Search => () {
+  return (
+    <input placeholder="search" />
+    <SearchButton />
+  );
+}
+
+```
+
+
+
+> Ukázka 1: 01-hello-world/index.html
+> - Add few static search results shown in a `<table></table>`
+
+> Cvičení 1:
+> - Přesunout `<input>` do zvlastni komponenty SearchInput
+> - Přesunout 2 tlačítka `<button>` do zvlastni komponenty SearchButtons
+
+---
 
 ## Props @kuba 30 mins
 
 * K čemu jsou propsy a jak je používat
 * Základní použití CSS stylů
+  * class / className
+
+> Cvičení 2:
+> - Predani hledaneho textu z SearchInput do App
+> - Zpracovani callbacku z SearchButtons
 
 ## State @honza 30 mins
 
