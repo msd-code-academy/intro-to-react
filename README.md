@@ -137,7 +137,68 @@ const Search => () {
 > - Predani hledaneho textu z SearchInput do App
 > - Zpracovani callbacku z SearchButtons
 
-## State @honza 30 mins
+## State @honza
+
+* "Memory" in which we can save variable values
+  * Form values
+  * State of dynamic elements - open/close, hidden/visible
+  * Information about anything dynamic
+* Components re-render when state changes
+* !!! Always change the whole state object, not only its values !!!
+* Several ways how to use state:
+
+
+*class constructor*
+
+```
+class Search extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText: 'abc'
+    };
+  }
+
+  render() {
+    return (
+      <div>Search {this.state.searchText}</div>
+    );
+  }
+}
+```
+
+*class field*
+
+```
+class Search extends React.Component {
+
+  state = {
+    searchText: 'abc'
+  }
+
+  render() {
+    return (
+      <div>Search {this.state.searchText}</div>
+    );
+  }
+}
+```
+
+*hook*
+
+```
+const Search => () {
+
+  const [searchText, setSearchText] = useState('abc');
+
+  return (
+    <div>Search {searchText}</div>
+  );
+}
+```
+
+
 
 ## Shared State @kuba 30 mins
 
