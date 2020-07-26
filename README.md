@@ -118,7 +118,7 @@ const Search => () {
 
 
 
-> Ukázka 1: 01-hello-world/index.html
+> Ukázka 1: 01-hello-world/App.jsx
 > - Add few static search results shown in a `<table></table>`
 
 > Cvičení 1:
@@ -136,6 +136,8 @@ const Search => () {
 > Cvičení 2:
 > - Predani hledaneho textu z SearchInput do App
 > - Zpracovani callbacku z SearchButtons
+
+---
 
 ## State @honza
 
@@ -198,11 +200,21 @@ const Search => () {
 }
 ```
 
+> Ukázka 3: 03-state/App.jsx
+> - TBD
 
+> Cvičení 3:
+> - TBD
+
+---
 
 ## Shared State @kuba 30 mins
 
+---
+
 ## React Router @honza 30 mins
+
+---
 
 ## React Create App @kuba 30 mins
 
