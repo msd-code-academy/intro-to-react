@@ -2,13 +2,9 @@ import React from 'react';
 
 import searchLogo from '../../search.svg'
 
-const SearchInput = () => (
+export const SearchInput = () => (
   <div className="input">
-    <img className="search-icon" src={searchLogo} />
+    <img className="search-icon" src={searchLogo} alt="Search Logo" />
     <input id="search-text" value="abc" />
   </div>
 )
-
-export {
-  SearchInput
-}

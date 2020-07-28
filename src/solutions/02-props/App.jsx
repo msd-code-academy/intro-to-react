@@ -1,7 +1,72 @@
 import React from 'react';
 
-export class Search extends React.Component {
+import { SearchButtons } from './SearchButtons'
+import { SearchInput } from './SearchInput'
+
+import '../../index.css'
+
+class Results extends React.Component {
   render() {
-    return null;
+    const {searchQuery, children} = this.props;
+
+    return (
+      <div className="results">
+        <h2>Results for <span id="search-text-results">{searchQuery}</span></h2>
+        <div className="results__list">
+          {children}
+        </div>
+      </div>
+    );
+  };
+};
+
+class ResultItem extends React.Component {
+  render() {
+    const {link, title, description} = this.props;
+
+    return (
+      <div className="results__list-item">
+        <a href={link}><h3 className="results__list-title">{title}</h3></a>
+        <div className="results__list-description">{description}</div>
+      </div>
+    );
+  };
+};
+
+export class App extends React.Component {
+
+  render() {
+    return (
+      <div className="App">
+        <header>
+          <img alt="Logo"/>
+          <span>Gmail</span>
+        </header>
+        <div>
+          <div>
+            <div className="logo"></div>
+            <SearchInput />
+            <SearchButtons />
+          </div>
+        </div>
+        <Results searchQuery="abc" >
+          <ResultItem 
+            link="/Result-1" 
+            title="Czech Magazine for Youth" 
+            description="ABC is a favorite Czech magazine for children that focuses on science and technology. It's purpose is to both educate children as well as get them excited about science and nature."
+            />
+          <ResultItem
+            link="/Result-2"
+            title="TV Station"
+            description="ABC is an American Broadcasting Company, a flagship property of Walt Disney Television, a subsidiary of the Disney Media Networks division of The Walt Disney Company. It has headquarter in Burbank, California."
+            />
+          <ResultItem
+            link="/Result-3"
+            title="First Letters of Alphabet" 
+            description="ABC are first letters of the alphabet. English alphabet consists of 26 letters and it originated around the 7th century from the Latin script. The word alphabet is a compound of first two letters of greek alphabet - alpha and beta."
+            />
+        </Results>
+      </div>
+    );
   }
 }

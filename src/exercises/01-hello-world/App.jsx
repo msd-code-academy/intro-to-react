@@ -9,14 +9,14 @@ export class App extends React.Component {
     return (
       <div className="App">
         <header>
-          <img />
+          <img alt="Logo" />
           <span>Gmail</span>
         </header>
         <div>
           <div>
             <div className="logo"></div>
             <div className="input">
-              <img className="search-icon" src={searchLogo} />
+              <img className="search-icon" src={searchLogo} alt="Search Logo"/>
               <input id="search-text" value="abc" />
             </div>
             <div className="buttons">

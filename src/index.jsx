@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {App} from './exercises/01-hello-world/App';
-// import {App} from './solutions/02-props';
-// import {App} from './solutions/03-state';
+// import {App} from './exercises/02-props/App';
+// import {App} from './exercises//03-state/App';
 
 import './index.css';
 

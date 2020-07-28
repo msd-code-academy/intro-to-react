@@ -324,10 +324,7 @@ class StudentsList extends React.Component {
 }
 ```
 
-> Cvičení 2:
->
-> - Predani hledaneho textu z SearchInput do App
-> - Zpracovani callbacku z SearchButtons
+> [Cvičení 2](./src/exercises/02-props/App.jsx):
 
 Poznámky:
 
