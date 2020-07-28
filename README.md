@@ -385,8 +385,19 @@ class Search extends React.Component {
 }
 ```
 
-*hook*
+*seting state in class*
+```
+this.setState({searchText: 'cde'})
+```
 
+but NEVER
+```
+this.state.searchText = 'cde'
+// OR
+this.state.setState(this.state)
+```
+
+*hook*
 ```
 const Search => () {
 
@@ -398,8 +409,20 @@ const Search => () {
 }
 ```
 
+*seting state with hook*
+```
+const [searchText, setSearchText] = useState('abc');
+
+setSearchText('cde')
+```
+
+* dummy and smart components
+  * to prevent messy state all over the place
+  * some components intentionally does not have any state but rather accepts it from parent components through props - dummy
+  * some components keep state for other components - smart
+
 > Ukázka 3: 03-state/App.jsx
-> - TBD
+> - SMART App.jsx and dummy SearchInput.jsx and SearchResults.jsx
 
 > Cvičení 3:
 > - TBD
@@ -411,6 +434,59 @@ const Search => () {
 ---
 
 ## React Router @honza 30 mins
+
+* routing
+  * server side routing
+    user -> open a link -> browser send an request to server -> server creates an response -> send it back to user
+  * client side rendering
+    user -> open a link -> javascript handle the link click -> javascript renders a different component
+* moders browsers has a functions for manipulating with URL
+* React Router
+  * https://reactrouter.com/web/guides/quick-start
+  * special kind of component for navigation in an app
+  * not part of React
+
+```
+<Router>
+  <div>
+    <ul>
+      <li>
+        <Link to="/">Search</Link>
+      </li>
+      <li>
+        <Link to="/gmail">Gmail</Link>
+      </li>
+    </ul>
+
+    <Switch>
+      <Route exact path="/">
+        <Search />
+      </Route>
+      <Route path="/gmail">
+        <Gmail />
+      </Route>
+    </Switch>
+  </div>
+</Router>
+```
+
+> Ukázka 5a: 05-router/App.jsx
+> - Add new Gmail component
+> - Use existing Gmail link to navigate to this component
+
+* Routes evaluation
+  * useful for 404 pages
+* URL parametres
+  * it is possible to pass parametres to an URL
+
+
+> Ukázka 5b: 05-router/App.jsx
+> - Move search results to a new page
+> - Add 404 error page
+
+> Cviceni 5:
+> - Add AboutUs.jsx page
+> - Add new menu item with link to About Us
 
 ---
 
