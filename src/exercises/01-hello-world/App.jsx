@@ -3,6 +3,14 @@ import React from 'react';
 import searchLogo from '../../search.svg';
 import '../../index.css';
 
+/**
+ * Cvičení:
+ *
+ * - Extrahujte `<input>` do samostatné komponenty `SearchInput`
+ * - Přesuňte 2 tlačítka `<button>` do zvláštní komponenty `SearchButtons`
+ *
+ *  */
+
 export class App extends React.Component {
   render() {
     return (

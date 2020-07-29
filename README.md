@@ -13,11 +13,23 @@
 
 ---
 
+## Před začátkem
+
+Prosím spusťte:
+
+```bash
+git clone https://github.com/msd-code-academy/intro-to-react.git
+cd intro-to-react
+npm ci # tenhle příkaz může chvíli trvat
+```
+
+---
+
 ## HTML + CSS + JavaScript ~= Webová aplikace @Honza
 
 - Webové stránky a aplikace se skládají z několika částí
   - HTML - obsah
-  - CSS - Vzhled
+  - CSS - vzhled
   - JavaScript - interaktivita/změny
 
 ### HTML
@@ -57,7 +69,7 @@ h1 {
 document.getElementsByTagName('input')[0].value = 'abc'
 ```
 
-or
+nebo pomocí jQuery
 
 ```js
 $('input').val('abc')
@@ -67,7 +79,7 @@ $('input').val('abc')
 
 ---
 
-## React - Hello World @honza 30 mins
+## React - Hello World @honza
 
 - JavaScriptová knihovna pro tvorbu uživatelských rozhraní
 - Kombinuje JavaScript a HTML => JSX
@@ -108,7 +120,7 @@ const Search => () {
 }
 ```
 
-* Zanořování (skládání) komponent
+Zanořování (skládání) komponent:
 
 ```js
 const SearchButton => () {
@@ -126,18 +138,16 @@ const Search => () {
 
 ```
 
-> Ukázka 1: [01-hello-world/App.jsx](./src/exercises/01-hello-world/App.jsx)
-> - Add few static search results shown in a `<table></table>`
+> [Ukázka 1](./src/exercises/01-hello-world/App.jsx)
 
-> Cvičení 1:
-> - Extrahuj `<input>` do samostatné komponenty `SearchInput`
-> - Přesuň 2 tlačítka `<button>` do zvláštní komponenty `SearchButtons`
+> [Cvičení 1](./src/exercises/01-hello-world/App.jsx)
 
-> Key Takeways:
-> * React je knihovna pro vytváření UI pomocí komponent
-> * Komponenty můžeme skládat/vnořovat do sebe
-> * V reactu nevytváříme UI v HTML, ale JSX, což je HTML v JavaScriptu
-> * Máme několik způsobů, jak vytvořit komponentu - `Class`, `function`
+> Klíčové poznatky:
+>
+> - React je knihovna pro vytváření UI pomocí komponent
+> - Komponenty můžeme skládat/vnořovat do sebe
+> - V reactu nevytváříme UI v HTML, ale JSX, což je HTML v JavaScriptu
+> - Máme několik způsobů, jak vytvořit komponentu - `Class`, `function`
 
 ---
 
@@ -342,14 +352,13 @@ Poznámky:
 
 ## State @honza
 
-* "Memory" in which we can save variable values
-  * Form values
-  * State of dynamic elements - open/close, hidden/visible
-  * Information about anything dynamic
-* Components re-render when state changes
-* !!! Always change the whole state object, not only its values !!!
-* Several ways how to use state:
+- "Paměť" komponenty, do které můžeme ukládat hodnoty, například
+  - Hodnoty z formuláře
+  - Stav dynamických proměnných - zavřeno / otevřeno, načítá se / načteno, ...
+  - Jakákoli jiná dynamická data
+- Komponenty se přerendrují, pokud se změní stav
 
+### Stav v komponentách
 
 *class constructor*
 
@@ -388,27 +397,27 @@ class Search extends React.Component {
 }
 ```
 
-*seting state in class*
-```jsx
-this.setState({searchText: 'cde'})
-```
+*Nastavení stavu v class komponentách - setState*
 
-but NEVER
-```jsx
-this.state.searchText = 'cde'
-// OR
-this.state.setState(this.state)
+- Stav se nikdy nesmí měnit přímým přiřazením nového stavu, pouze přes funkci `setState`
+
+```js
+// !!! Chybné !!!:
+this.state.loading = true;
+this.state = {loading: true};
+
+// Správně:
+this.setState({loading: true});
 ```
 
 > #### Virtual DOM
-> Ukazka 3:
-> * DOM vs Virtual DOM
-> * Re-rendering
-> ![](https://i2.wp.com/programmingwithmosh.com/wp-content/uploads/2018/11/lnrn_0201.png?ssl=1)
-
-
+>
+> - DOM vs Virtual DOM
+> - Re-rendering
+> ![DOM vs Virtual DOM](https://i2.wp.com/programmingwithmosh.com/wp-content/uploads/2018/11/lnrn_0201.png?ssl=1)
 
 *hook*
+
 ```jsx
 const Search => () {
 
@@ -420,26 +429,27 @@ const Search => () {
 }
 ```
 
-*seting state with hook*
+*nastavení stavu ve funkcionální komponentě*
+
 ```jsx
 const [searchText, setSearchText] = useState('abc');
 
 setSearchText('cde')
 ```
 
-* dummy and smart components
-  * to prevent messy state all over the place
-  * some components intentionally does not have any state but rather accepts it from parent components through props - dummy
-  * some components keep state for other components - smart
+- chytré a hloupé (také kontrolované) komponenty
+  - pattern, který předchází nepřehlednému zacházení se stavem na více místech
+  - některé komponenty záměrně nemají žádný stav, ale raději jej přijímají od rodičovských komponent přes propsy - tzv. kontrolované komponenty
+  - jiné komponenty pak udržují stav i pro ostatní komponenty - tzv. chytré komponenty
 
-> Cvičení 3:
-> - SMART App.jsx and dummy SearchInput.jsx and SearchResults.jsx
+> [Cvičení 3](./src/exercises/03-state/App.jsx)
 
-> Key Takeways:
-> * State slouží k uchování proměnlivého stavu komponent
-> * Opět máme několik možností, jak State použít - `constructor`, class field, hook
-> * State nikdy neměníme, ale vžy vytváříme nový. To proto, aby React poznal, kdy má překreslit komponentu
-> * React používá Virtual DOM, aby zjistil, jakou část UI je třeba překreslit
+> Klíčové poznatky:
+>
+> - State slouží k uchování proměnlivého stavu komponent
+> - Opět máme několik možností, jak state použít - `constructor`, class field, hook
+> - State nikdy neměníme, ale vžy vytváříme nový pomocí setState funkce. To proto, aby React poznal, kdy má překreslit komponentu
+> - React používá Virtual DOM, aby zjistil, jakou část UI je třeba překreslit
 
 ---
 
@@ -451,7 +461,7 @@ serveru a má přístup například do databáze.
 
 > API je zkratka pro Application Programming Interface a jedná se o rozhraní, díky kterému spolu mohou různé
 > aplikace komunikovat mezi sebou. Ve webovém vývoji je asi nejčastější
-> [REST API](https://www.itnetwork.cz/programovani/nezarazene/stoparuv-pruvodce-rest-api), které umožňuje
+> [REST API](https://www.itnetwork.cz/programovani/nezarazene/stoparuv-pruvodce-rest-api), která umožňuje
 > jednoduše vytvářet, číst, editovat nebo mazat (CRUD operace - Create, Read, Update, Delete) data na serveru
 > pomocí HTTP volání.
 
@@ -459,7 +469,7 @@ V našem případě uživatel zadá do vstupního pole nějaký text a následn�
 chceme poslat dotaz společně s hledaným výrazem na server, ten z databáze vyfiltruje záznamy podle předaného
 dotazu a pošle zpátky odpověd jen s relevantími výsledky.
 
-Tyto akce jsou asynchronní - nějaký čas trvá, než se náž dotaz zpracuje a vrátí se s výsledky. V živatelském
+Tyto akce jsou asynchronní - nějaký čas trvá, než se náž dotaz zpracuje a vrátí se s výsledky. V uživatelském
 rozhraní tak potřebujeme zpravidla:
 
 - odeslat dotaz na server
@@ -470,8 +480,8 @@ rozhraní tak potřebujeme zpravidla:
 
 ### Fetch
 
-> `fetch()` je funkce, která je globálně dostupná ve většině moderních prohlížečích, která slouží k posílání
-> http requestů. Akceptuje dva argumenty - prvním (povinným) je URL adresa dotazu a druhým (volitelným)
+> `fetch()` je funkce, která je globálně dostupná ve většině moderních prohlížečích. Slouží k posílání
+> http requestů a akceptuje dva argumenty - prvním (povinným) je URL adresa dotazu a druhým (volitelným)
 > parametrem je objekt s dodatečnými informacemi a konfigurací.
 > Více si můžete přečíst [zde](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
@@ -513,18 +523,18 @@ Jak zavolat API endpoint a zpracovat jeho výsledek je názorně ukázáno v [p�
 
 ---
 
-## React Router @honza 30 mins
+## React Router @honza
 
-* routing
-  * server side routing
-    user -> open a link -> browser send an request to server -> server creates an response -> send it back to user
-  * client side rendering
-    user -> open a link -> javascript handle the link click -> javascript renders a different component
-* moders browsers has a functions for manipulating with URL
-* React Router
-  * https://reactrouter.com/web/guides/quick-start
-  * special kind of component for navigation in an app
-  * not part of React
+- routing
+  - routing na straně serveru
+    uživatel -> otevře odkaz -> prohlížeč pošle dotaz na server -> server vytvoří odpověd -> server pošle odpověď uživateli
+  - rendering na straně klienta
+    uživatel -> otevře odkaz -> javascript zpracuje kliknutí na odkaz -> javascript vyrenderuje jinou komponentu
+- moderní prohlížeče mají standardní funkce pro manipulaci s URL adresou
+- React Router
+  - https://reactrouter.com/web/guides/quick-start
+  - speciální druh komponenty pro navigaci uvnitř aplikace
+  - není součástí Reactu, musíme jí doinstalovat
 
 ```jsx
 
@@ -558,17 +568,9 @@ import {
 </Router>
 ```
 
-> Cviceni 5: 05-router/App.jsx
-> - Add new Gmail component
-> - Use existing Gmail link to navigate to this component
+> [Cvičení 5](./src/exercises/05-router/App.jsx)
 
-* URL parametres
-  * it is possible to pass parametres to an URL
-
-
-> Ukázka 5: 05-router/App.jsx
-> - Move search results to a new page
-> -
+- je možné předávat URL parametry
 
 ---
 
