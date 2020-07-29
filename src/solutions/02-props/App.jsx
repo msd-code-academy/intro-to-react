@@ -2,38 +2,10 @@ import React from 'react';
 
 import {SearchButtons} from './SearchButtons';
 import {SearchInput} from './SearchInput';
+import {Results} from './Results';
+import {ResultItem} from './ResultsItem';
 
 import '../../index.css';
-
-class Results extends React.Component {
-  render() {
-    const {searchQuery, children} = this.props;
-
-    return (
-      <div className="results">
-        <h2>
-          Results for <span id="search-text-results">{searchQuery}</span>
-        </h2>
-        <div className="results__list">{children}</div>
-      </div>
-    );
-  }
-}
-
-class ResultItem extends React.Component {
-  render() {
-    const {link, title, description} = this.props;
-
-    return (
-      <div className="results__list-item">
-        <a href={link}>
-          <h3 className="results__list-title">{title}</h3>
-        </a>
-        <div className="results__list-description">{description}</div>
-      </div>
-    );
-  }
-}
 
 export class App extends React.Component {
   render() {
