@@ -7,8 +7,6 @@ import {ResultItem} from './ResultsItem';
 
 import '../../index.css';
 
-import image from '../../search.svg';
-
  const resultsFromAPI = [
   {
     link: '/Result-1',
@@ -45,8 +43,7 @@ export class App extends React.Component {
     return (
       <div className="App">
         <header>
-          <img src={image} />
-          <img alt="Logo" />
+          <img />
           <span>Gmail</span>
         </header>
         <div>
