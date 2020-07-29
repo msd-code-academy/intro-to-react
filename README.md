@@ -527,6 +527,14 @@ Jak zavolat API endpoint a zpracovat jeho výsledek je názorně ukázáno v [p�
   * not part of React
 
 ```jsx
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 <Router>
   <div>
     <ul>
@@ -550,23 +558,17 @@ Jak zavolat API endpoint a zpracovat jeho výsledek je názorně ukázáno v [p�
 </Router>
 ```
 
-> Ukázka 5a: 05-router/App.jsx
+> Cviceni 5: 05-router/App.jsx
 > - Add new Gmail component
 > - Use existing Gmail link to navigate to this component
 
-* Routes evaluation
-  * useful for 404 pages
 * URL parametres
   * it is possible to pass parametres to an URL
 
 
-> Ukázka 5b: 05-router/App.jsx
+> Ukázka 5: 05-router/App.jsx
 > - Move search results to a new page
-> - Add 404 error page
-
-> Cviceni 5:
-> - Add AboutUs.jsx page
-> - Add new menu item with link to About Us
+> -
 
 ---
 
