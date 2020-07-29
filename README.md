@@ -446,7 +446,30 @@ setSearchText('cde')
 
 ---
 
-## Shared State @kuba 30 mins
+## Získávání dat ze serveru
+
+V běžném světě nemíváme v React aplikaci rovnou k dispozici data (například výsledky vyhledávání). Zpravidla
+si tato data musíme stáhnout až na základě nějaké akce uživatele. K tomu se používá API, které běží někde na
+serveru a má přístup například do databáze.
+
+> API je zkratka pro Application Programming Interface a jedná se o rozhraní, díky kterému spolu mohou různé
+> aplikace komunikovat mezi sebou. Ve webovém vývoji je asi nejčastější
+> [REST API](https://www.itnetwork.cz/programovani/nezarazene/stoparuv-pruvodce-rest-api), které umožňuje
+> jednoduše vytvářet, číst, editovat nebo mazat (CRUD operace - Create, Read, Update, Delete) data na serveru
+> pomocí HTTP volání.
+
+V našem případě uživatel zadá do vstupního pole nějaký text a následně klikne na tlačítko hledat. V tu chvíli
+chceme poslat dotaz společně s hledaným výrazem na server, ten z databáze vyfiltruje záznamy podle předaného
+dotazu a pošle zpátky odpověd jen s relevantími výsledky.
+
+Tyto akce jsou asynchronní - nějaký čas trvá, než se náž dotaz zpracuje a vrátí se s výsledky. V živatelském
+rozhraní tak potřebujeme zpravidla:
+
+- odeslat dotaz na server
+- zobrazit indikaci načítání (loading)
+- zachytit výsledky dotazu
+- uložit výsledky do lokálního stavu a zobrazit je
+- případně zobrazit chybu, pokud dotaz selže
 
 ---
 

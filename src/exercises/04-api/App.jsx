@@ -7,6 +7,8 @@ import {ResultItem} from './ResultsItem';
 
 import '../../index.css';
 
+// fetch('https://myslenkynezastavis.cz?searchQuery=abc').then((result) => result.json()).then(console.log);
+
 /**
  * Cvičení:
  *
