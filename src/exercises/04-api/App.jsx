@@ -7,8 +7,6 @@ import {ResultItem} from './ResultsItem';
 
 import '../../index.css';
 
-import image from '../../search.svg';
-
 /**
  * Cvičení:
  *
@@ -51,7 +49,6 @@ export class App extends React.Component {
     return (
       <div className="App">
         <header>
-          <img src={image} />
           <img alt="Logo" />
           <span>Gmail</span>
         </header>

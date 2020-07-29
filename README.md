@@ -433,10 +433,10 @@ setSearchText('cde')
   * some components keep state for other components - smart
 
 > Ukázka 3b: 03-state/App.jsx
-> - SMART App.jsx and dummy SearchInput.jsx and SearchResults.jsx
+> -
 
 > Cvičení 3:
-> - TBD
+> - SMART App.jsx and dummy SearchInput.jsx and SearchResults.jsx
 
 > Key Takeways:
 > * State slouží k uchování proměnlivého stavu komponent
