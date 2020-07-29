@@ -9,12 +9,6 @@ import '../../index.css';
 
 import image from '../../search.svg';
 
-/**
- * Cvičení:
- *
- *
- *  */
-
  const resultsFromAPI = [
   {
     link: '/Result-1',

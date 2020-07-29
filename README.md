@@ -401,7 +401,7 @@ this.state.setState(this.state)
 ```
 
 > #### Virtual DOM
-> Ukazka 3a:
+> Ukazka 3:
 > * DOM vs Virtual DOM
 > * Re-rendering
 > ![](https://i2.wp.com/programmingwithmosh.com/wp-content/uploads/2018/11/lnrn_0201.png?ssl=1)
@@ -421,7 +421,7 @@ const Search => () {
 ```
 
 *seting state with hook*
-```
+```jsx
 const [searchText, setSearchText] = useState('abc');
 
 setSearchText('cde')
@@ -431,9 +431,6 @@ setSearchText('cde')
   * to prevent messy state all over the place
   * some components intentionally does not have any state but rather accepts it from parent components through props - dummy
   * some components keep state for other components - smart
-
-> Ukázka 3b: 03-state/App.jsx
-> -
 
 > Cvičení 3:
 > - SMART App.jsx and dummy SearchInput.jsx and SearchResults.jsx
