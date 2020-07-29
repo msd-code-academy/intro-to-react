@@ -7,22 +7,6 @@ import {ResultItem} from './ResultsItem';
 
 import '../../index.css';
 
-/**
- * Cvičení:
- *  
- * - změňtě implementaci handleSearchClick metody tak, aby volala fetchResultsFromAPI
- * - do stavu do proměnné "loading" nastavte true při začátku stahování dat (a také null do proměnné erro) poté,
- *   co je stahování dokončeno, nastavte do "loading" hodnotu false
- * - uložte hodnotu z odpovědi do stavu do proměnné "results"
- * - obalte vnitřek metody handleSearchClick do `try { } catch (error) { }` bloku
- * - pokud se při stahování něco nepovede (v catch bloku) nastavte do stavu do proměnné "error" popis chyby (error.message)
- * - předejte "loading" a "error" ze stavu jako propsy do komponenty Results
- * 
- * - vyzkoušejte :)
- * 
- *  Poznámka: komponenta Results je v našem případě kontrolovaná komponenta
- *  */
-
 const fetchResultsFromAPI = async () => {
   const response = await fetch('https://myslenkynezastavis.cz?searchQuery=abc');
   const result = await response.json();
@@ -43,11 +27,27 @@ export class App extends React.Component {
   };
 
   handleSearchClick = async () => {
-    // TODO
+    try{
+      this.setState({
+        loading: true,
+        // musíme vyresetovat chybu z předchozích stahování
+        error: null
+      });
+      const fetchResult = await fetchResultsFromAPI();
+      this.setState({
+        loading: false,
+        results: fetchResult
+      });
+    } catch (error) {
+      this.setState({
+        loading: false,
+        error: error.message
+      });
+    }
   };
 
   render() {
-    const {searchQuery, results} = this.state;
+    const {loading, error, results, searchQuery} = this.state;
 
     return (
       <div className="App">
@@ -62,7 +62,7 @@ export class App extends React.Component {
             <SearchButtons onSearch={this.handleSearchClick} />
           </div>
         </div>
-        <Results searchQuery={searchQuery} loading={/* TODO */} error={/* TODO */}>
+        <Results searchQuery={searchQuery} loading={loading} error={error}>
           {results.map((result) => {
             return <ResultItem key={result.link}
                 link={result.link}
