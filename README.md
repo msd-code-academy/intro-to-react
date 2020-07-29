@@ -570,11 +570,55 @@ Jak zavolat API endpoint a zpracovat jeho výsledek je názorně ukázáno v [p�
 
 ---
 
-## React Create App @kuba 30 mins
+## Create React App (CRA) @kuba
 
-## Zmínit
+Chceme-li rychle a snadno vytvořit React aplikaci se základním nastavením tak, abychom mohli rovnou začít vyvíjet a
+nezabývali se nastavováním a konfigurací, můžeme použít `create-react-app` (CRA) balíček, který nám vytvoří adresář a
+do něj nainstaluje a nakonfiguruje React.
 
-* Základní použití CSS stylů
-* Použití linterů
-* Testování
-* Pro import `index.jsx` souborů stačí uvést složku, ve které ten soubor je
+Nejdříve je vhodné mít globálně nainstalovaný `npx` balíček, pokud jej ještě nainstalovaný nemáme:
+
+```bash
+npm install -g npx
+```
+
+Následně už můžeme nainstalovat samotnou React aplikaci pomocí příkazů:
+
+```bash
+npx create-react-app my-app
+cd my-app
+npm start
+```
+
+kde `my-app` je libovolné jméno naší aplikace.
+
+CRA za nás řeší spoustu problémů tak, abychom se mohli soustředit na vývoj aplikace samotné, například bundlování.
+
+### Vkládání obrázků
+
+Máme-li aplikaci vytvořenou pomocí CRA, stačí obrázky standardním způsobem importovat do naší komponenty a importovanou
+proměnnou použít jako URL daného obrázku. O nic víc se nemusíme starat:
+
+```jsx
+import myImage from './image.svg';
+
+class MyComponent extends React.Component {
+  render() {
+    return <img src={myImage} />;
+  }
+};
+```
+
+### Vkládání CSS souborů
+
+Stejně jednoduše lze vkládat i CSS soubory do našich komponent - stačí je jen importovat:
+
+```jsx
+import './myComponentStyles.css';
+
+class MyComponent extends React.Component {
+  render() {
+    return <div className="class-in-css-file" >Open the door, Hal!</div>;
+  }
+};
+```
