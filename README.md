@@ -133,6 +133,12 @@ const Search => () {
 > - Extrahuj `<input>` do samostatné komponenty `SearchInput`
 > - Přesuň 2 tlačítka `<button>` do zvláštní komponenty `SearchButtons`
 
+> Key Takeways:
+> * React je knihovna pro vytváření UI pomocí komponent
+> * Komponenty můžeme skládat/vnořovat do sebe
+> * V reactu nevytváříme UI v HTML, ale JSX, což je HTML v JavaScriptu
+> * Máme několik způsobů, jak vytvořit komponentu - `Class`, `function`
+
 ---
 
 ## Props @kuba 30 mins
@@ -347,7 +353,7 @@ Poznámky:
 
 *class constructor*
 
-```
+```jsx
 class Search extends React.Component {
 
   constructor(props) {
@@ -367,7 +373,7 @@ class Search extends React.Component {
 
 *class field*
 
-```
+```jsx
 class Search extends React.Component {
 
   state = {
@@ -383,19 +389,27 @@ class Search extends React.Component {
 ```
 
 *seting state in class*
-```
+```jsx
 this.setState({searchText: 'cde'})
 ```
 
 but NEVER
-```
+```jsx
 this.state.searchText = 'cde'
 // OR
 this.state.setState(this.state)
 ```
 
+> #### Virtual DOM
+> Ukazka 3a:
+> * DOM vs Virtual DOM
+> * Re-rendering
+> ![](https://i2.wp.com/programmingwithmosh.com/wp-content/uploads/2018/11/lnrn_0201.png?ssl=1)
+
+
+
 *hook*
-```
+```jsx
 const Search => () {
 
   const [searchText, setSearchText] = useState('abc');
@@ -418,11 +432,17 @@ setSearchText('cde')
   * some components intentionally does not have any state but rather accepts it from parent components through props - dummy
   * some components keep state for other components - smart
 
-> Ukázka 3: 03-state/App.jsx
+> Ukázka 3b: 03-state/App.jsx
 > - SMART App.jsx and dummy SearchInput.jsx and SearchResults.jsx
 
 > Cvičení 3:
 > - TBD
+
+> Key Takeways:
+> * State slouží k uchování proměnlivého stavu komponent
+> * Opět máme několik možností, jak State použít - `constructor`, class field, hook
+> * State nikdy neměníme, ale vžy vytváříme nový. To proto, aby React poznal, kdy má překreslit komponentu
+> * React používá Virtual DOM, aby zjistil, jakou část UI je třeba překreslit
 
 ---
 
@@ -443,7 +463,7 @@ setSearchText('cde')
   * special kind of component for navigation in an app
   * not part of React
 
-```
+```jsx
 <Router>
   <div>
     <ul>
