@@ -330,7 +330,7 @@ class StudentsList extends React.Component {
 }
 ```
 
-> [Cvičení 2](./src/exercises/02-props/App.jsx):
+> [Cvičení 2](./src/exercises/02-props/App.jsx)
 
 Poznámky:
 
@@ -467,6 +467,49 @@ rozhraní tak potřebujeme zpravidla:
 - zachytit výsledky dotazu
 - uložit výsledky do lokálního stavu a zobrazit je
 - případně zobrazit chybu, pokud dotaz selže
+
+### Fetch
+
+> `fetch()` je funkce, která je globálně dostupná ve většině moderních prohlížečích, která slouží k posílání
+> http requestů. Akceptuje dva argumenty - prvním (povinným) je URL adresa dotazu a druhým (volitelným)
+> parametrem je objekt s dodatečnými informacemi a konfigurací.
+> Více si můžete přečíst [zde](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
+```js
+// Každou funkci, ve které používáme "await", musí být označena jako asynchronní pomocí slova "async"
+const fetchJokes = async () => {
+  // REST API s vtipy o Chucku Norrisovi
+  const url = "https://api.chucknorris.io/jokes/search?query=world";
+
+  try {
+    // Volání funkce fetch vrací promise, musíme tedy použít await, abychom řekli kódu, že má počkat na výsledek
+    const response = await fetch(url, {
+      method: 'GET', // GET (default), POST, PUT, DELETE, ...
+      mode: 'cors', // cors (default), no-cors, same-origin
+      cache: 'no-cache', // default (default), no-cache, reload, force-cache, only-if-cached
+      headers: {
+        'Content-Type': 'application/json' // 'application/x-www-form-urlencoded', ...
+        // ...
+      },
+      // ...
+    })
+    // po úspěšném vrácení HTTP dotazu získáme objekt typu response, který ještě musíme zpracovat podle toho,
+    // jaký typ odpovědi očekáváme, například response.json() nebo response.text()
+    // Volání funkce .json() vrací také promise, musíme tedy opět pomocí await počkat, až se resolvne
+    const responseJSON = await response.json();
+
+    // Nyní můžeme výsledek vypsat do konzole
+    console.log(responseJSON.result);
+  } catch (error) {
+    // Kdekoli v řetězci volání funkcí může nastat chyba - její zachycení si zajistíme pomocí catch()
+    console.error(error);
+  }
+};
+```
+
+Jak zavolat API endpoint a zpracovat jeho výsledek je názorně ukázáno v [příkadu](./src/examples/fetch/App.jsx)
+
+> [Cvičení 4](./src/exercises/04-api/App.jsx)
 
 ---
 

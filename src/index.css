@@ -80,3 +80,25 @@ header span {
   height: 36px;
   min-width: 54px;
 }
+
+.results__error {
+  text-align: center;
+  color: red;
+  border: 1px solid red;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+
+@keyframes fadeIn { 
+  from { opacity: 0; } 
+}
+
+.results__loader {
+  text-align: center;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 20px;
+  animation: fadeIn 0.8s infinite alternate;
+}
