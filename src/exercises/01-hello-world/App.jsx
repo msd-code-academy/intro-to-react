@@ -37,7 +37,6 @@ export class App extends React.Component {
             Results for <span id="search-text-results">abc</span>
           </h2>
 
-          {/* TODO: add few static search results shown in a <table></table> */}
         </div>
       </div>
     );

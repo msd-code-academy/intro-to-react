@@ -1,5 +1,19 @@
 # Vytváření webových aplikací v Reactu
 
+## Před začátkem
+
+Prosím spusťte:
+
+```bash
+git clone https://github.com/msd-code-academy/intro-to-react.git
+cd intro-to-react
+npm ci # tenhle příkaz může chvíli trvat
+```
+
+---
+
+## Intro
+
 - Začátek: 18:05
 - Přestávka (10 minut): 19:30 - 19:40
 - Struktura
@@ -14,18 +28,6 @@
   - Jak vytvořit jednodušší ale plnohodnotnou aplikaci v Reactu
   - Jak pracovat s API, obrázky, styly
   - "good practices" v Reactu
-
----
-
-## Před začátkem
-
-Prosím spusťte:
-
-```bash
-git clone https://github.com/msd-code-academy/intro-to-react.git
-cd intro-to-react
-npm ci # tenhle příkaz může chvíli trvat
-```
 
 ---
 
@@ -147,6 +149,7 @@ const Search => () {
 > - className (JSX) == class(HTML)
 
 > [Ukázka 1](./src/exercises/01-hello-world/App.jsx)
+> - vysvětlit strukturu projektu a imports
 
 > [Cvičení 1](./src/exercises/01-hello-world/App.jsx)
 
@@ -387,7 +390,7 @@ class Search extends React.Component {
 }
 ```
 
-*class field*
+*class field (preferovaná varianta)*
 
 ```jsx
 class Search extends React.Component {
@@ -409,12 +412,12 @@ class Search extends React.Component {
 - Stav se nikdy nesmí měnit přímým přiřazením nového stavu, pouze přes funkci `setState`
 
 ```js
+// Správně:
+this.setState({loading: true});
+
 // !!! Chybné !!!:
 this.state.loading = true;
 this.state = {loading: true};
-
-// Správně:
-this.setState({loading: true});
 ```
 
 > #### Virtual DOM
@@ -444,7 +447,7 @@ const [searchText, setSearchText] = useState('abc');
 setSearchText('cde')
 ```
 
-- chytré a hloupé (také kontrolované) komponenty
+- "chytré" a "hloupé" komponenty
   - pattern, který předchází nepřehlednému zacházení se stavem na více místech
   - některé komponenty záměrně nemají žádný stav, ale raději jej přijímají od rodičovských komponent přes propsy - tzv. kontrolované komponenty
   - jiné komponenty pak udržují stav i pro ostatní komponenty - tzv. chytré komponenty

@@ -40,6 +40,13 @@ const resultsFromAPI = [
  *  */
 
 export class App extends React.Component {
+
+  // 1) zde inicializujte stav. Bud pomoci konstruktoru nebo class fieldu
+  // stav by mel mit jeden prvek, prazdne pole "results"
+
+  // 3) vytvorte novou funkci handleSearchClick
+  // 4) pomoci this.setState() nastavte ve funkci "results" na "resultsFromAPI"
+
   render() {
     return (
       <div className="App">
@@ -51,9 +58,12 @@ export class App extends React.Component {
           <div>
             <div className="logo"></div>
             <SearchInput />
+            {/* 2) do SearchButtons pridejte novou props onSearch */}
             <SearchButtons />
           </div>
         </div>
+        {/* 5) pouzijte this.state.results k vykresleni vysledku dynamicky z promenne */}
+        {/* vyuzijte metodu map: this.state.results.map(result => <ResultItem>) */}
         <Results searchQuery="abc">
           <ResultItem
             link="/Result-1"
