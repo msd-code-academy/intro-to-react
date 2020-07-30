@@ -33,10 +33,10 @@ const resultsFromAPI = [
  *   - <button id="search-button" onClick={onSearch}>Google Search</button>
  * 3) v App.jsx vytvorte novou funkci "handleSearchClick" a pouzijte ji jako props v SearchButtons:
  * - <SearchButtons onSearch={this.handleSearchClick} />
- * 4) v tele funkce handleSearchClick nastavte hodnotu "results" v state vysledky vyhledavani z promenne resultsFromAPI nad timto textem
- * 5) pouzijte "results" ze state na misto "hard-coded" vysledku v teto komponente
+ * 4) v tele funkce handleSearchClick ulozte do "results" ve statu vysledky vyhledavani z promenne resultsFromAPI (viz nad timto textem)
+ * 5) pouzijte "results" ze statu misto hodnot "hard-coded" v teto komponente
  *   - napoveda, kdykoliv potrebujete projit pole objektu a na kazdy prvek pole vykreslit nejakou komponentu, pouzijte funkci "map", kterou ma kazde pole
- *   - napriklad takto this.state.results.map((result) => {result.desciption})
+ *   - napriklad takto this.state.results.map((result) => {return <Result title={result.title} />})
  *  */
 
 export class App extends React.Component {
@@ -63,7 +63,7 @@ export class App extends React.Component {
           </div>
         </div>
         {/* 5) pouzijte this.state.results k vykresleni vysledku dynamicky z promenne */}
-        {/* vyuzijte metodu map: this.state.results.map(result => <ResultItem>) */}
+        {/* vyuzijte metodu map: this.state.results.map((result) => {return <Result title={result.title} />}) */}
         <Results searchQuery="abc">
           <ResultItem
             link="/Result-1"

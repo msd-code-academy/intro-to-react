@@ -170,6 +170,7 @@ je do sebe. Začneme-li ale vytvářet obecnější komponenty, začneme také p
 předat informace.
 
 K tomu v Reactu používáme tzv. "propsy" - jsou to informace, které komponentě řeknou, co má vykreslit.
+Můžeme si je představit jako parametry funkce.
 
 Řekněme například, že chceme vytvořit seznam studentů ve třídě i s obrázky a odkazy na sociální sítě.
 
@@ -249,6 +250,27 @@ class Student extends React.Component {
 }
 ```
 
+Kdybychom implementovali komponentu `<Student />` jako funkcionální komponentu, získáme propsy z prvního (a jediného)
+parametru funkce:
+
+```jsx
+const Student = (props) => {
+  // i zde lze propsy pouze číst, nejde je přepisovat
+  const {name, profileImage, friendfacePath} = props;
+
+  return (
+    <div className="students-list__item-wrapper">
+      <img className="students-list__profile-image" src={profileImage} />
+      <a href={`https://www.friendface.com/${friendfacePath}`} className="students-list__friendface-link">
+        <div className="students-list__name">{name}</div>
+      </a>
+    </div>
+  );
+}
+```
+
+> ### Okénko do ES6
+> 
 > **Destrukturování** je způsob, jakým lze v moderním JavaScriptu definovat proměnnou a zároveň jí
 > přiřadit vlastnost nějakého objektu. Například
 >
