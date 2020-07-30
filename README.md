@@ -119,7 +119,7 @@ V Reactu se často používá alternativní způsob zápisu funkce, a to pomocí
 Tento kód je (až na malé rozdíly, ktefé pro teď ignorujeme) ekvivalentí zápisu výše.
 
 ```jsx
-const Search => () {
+const Search = () => {
   return (
     <div>Search</div>
   );
@@ -129,13 +129,13 @@ const Search => () {
 Zanořování (skládání) komponent:
 
 ```jsx
-const SearchButton => () {
+const SearchButton = () => {
   return (
     <button><i className="search-icon" />Search</button>
   );
 }
 
-const Search => () {
+const Search = () => {
   return (
     <input placeholder="search" />
     <SearchButton />
@@ -451,7 +451,7 @@ this.state = {loading: true};
 *hook*
 
 ```jsx
-const Search => () {
+const Search = () => {
 
   const [searchText, setSearchText] = useState('abc');
 
