@@ -8,8 +8,12 @@
   - Každý blok
     - ~= 30 minut
     - Teoretický úvod
-    - Praktická ukázka
     - Krátké samostatné cvičení
+    - Praktická ukázka řešení
+- Co se dozvím?
+  - Jak vytvořit jednodušší ale plnohodnotnou aplikaci v Reactu
+  - Jak pracovat s API, obrázky, styly
+  - "good practices" v Reactu
 
 ---
 
@@ -82,14 +86,14 @@ $('input').val('abc')
 ## React - Hello World @honza
 
 - JavaScriptová knihovna pro tvorbu uživatelských rozhraní
-- Kombinuje JavaScript a HTML => JSX
+- Kombinuje JavaScript s HTML => JSX
 - Komponenty
   - Hlavní stavební bloky
   - Lze je vytvářet dvěma hlavními způsoby
 
 *pomocí tříd - tzv. "class component"*
 
-```js
+```jsx
 class Search extends React.Component {
   render() {
     return (
@@ -101,7 +105,7 @@ class Search extends React.Component {
 
 *pomocí funkcí - tzv. "function component"*
 
-```js
+```jsx
 function Search() {
   return (
     <div>Search</div>
@@ -112,7 +116,7 @@ function Search() {
 V Reactu se často používá alternativní způsob zápisu funkce, a to pomocí šipkové notace ("arrow function").
 Tento kód je (až na malé rozdíly, ktefé pro teď ignorujeme) ekvivalentí zápisu výše.
 
-```js
+```jsx
 const Search => () {
   return (
     <div>Search</div>
@@ -122,7 +126,7 @@ const Search => () {
 
 Zanořování (skládání) komponent:
 
-```js
+```jsx
 const SearchButton => () {
   return (
     <button><i className="search-icon" />Search</button>
@@ -138,12 +142,15 @@ const Search => () {
 
 ```
 
+> class vs className
+> - jsme v JavaScriptu, kde `class` je rezervovane slovo
+> - className (JSX) == class(HTML)
+
 > [Ukázka 1](./src/exercises/01-hello-world/App.jsx)
 
 > [Cvičení 1](./src/exercises/01-hello-world/App.jsx)
 
 > Klíčové poznatky:
->
 > - React je knihovna pro vytváření UI pomocí komponent
 > - Komponenty můžeme skládat/vnořovat do sebe
 > - V reactu nevytváříme UI v HTML, ale JSX, což je HTML v JavaScriptu
