@@ -7,23 +7,12 @@ import {ResultItem} from './ResultsItem';
 
 import '../../index.css';
 
- const resultsFromAPI = [
-  {
-    link: '/Result-1',
-    title: 'Czech Magazine for Youth',
-    description: `ABC is a favorite Czech magazine for children that focuses on science and technology. It's purpose is to both educate children as well as get them excited about science and nature.`
-  },
-  {
-    link: '/Result-2',
-    title: 'TV Station',
-    description: 'ABC is an American Broadcasting Company, a flagship property of Walt Disney Television, a subsidiary of the Disney Media Networks division of The Walt Disney Company. It has headquarter in Burbank, California.'
-  },
-  {
-    link: '/Result-3',
-    title: 'First Letters of Alphabet',
-    description: 'ABC are first letters of the alphabet. English alphabet consists of 26 letters and it originated around the 7th century from the Latin script. The word alphabet is a compound of first two letters of greek alphabet - alpha and beta.'
-  }
-]
+const fetchResultsFromAPI = async () => {
+  const response = await fetch('https://myslenkynezastavis.cz?searchQuery=abc');
+  const result = await response.json();
+
+  return result;
+}
 
 /**
  * Cvičení:
@@ -35,6 +24,8 @@ import '../../index.css';
 export class App extends React.Component {
   state = {
     searchQuery: '',
+    loading: false,
+    error: null,
     results: []
   };
 
@@ -42,11 +33,29 @@ export class App extends React.Component {
     this.setState({searchQuery: text});
   };
 
-  handleSearchClick = () => {
-    this.setState({results: resultsFromAPI});
+  handleSearchClick = async () => {
+    try{
+      this.setState({
+        loading: true,
+        // musíme vyresetovat chybu z předchozích stahování
+        error: null
+      });
+      const fetchResult = await fetchResultsFromAPI();
+      this.setState({
+        loading: false,
+        results: fetchResult
+      });
+    } catch (error) {
+      this.setState({
+        loading: false,
+        error: error.message
+      });
+    }
   };
 
   render() {
+    const {loading, error, results, searchQuery} = this.state;
+
     return (
       <div className="App">
         <header>
@@ -56,12 +65,12 @@ export class App extends React.Component {
         <div>
           <div>
             <div className="logo"></div>
-            <SearchInput onChange={this.handleInputChange} searchQuery={this.state.searchQuery} />
+            <SearchInput onChange={this.handleInputChange} searchQuery={searchQuery} />
             <SearchButtons onSearch={this.handleSearchClick} />
           </div>
         </div>
-        <Results searchQuery={this.state.searchQuery}>
-          {this.state.results.map((result) => {
+        <Results searchQuery={searchQuery} loading={loading} error={error}>
+          {results.map((result) => {
             return <ResultItem key={result.link}
                 link={result.link}
                 title={result.title}

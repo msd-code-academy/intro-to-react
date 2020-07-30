@@ -2,7 +2,15 @@ import React from 'react';
 
 export class Results extends React.Component {
   render() {
-    const {searchQuery, children} = this.props;
+    const {searchQuery, loading, error, children} = this.props;
+
+    if (loading) {
+      return <div className="results__loader">Loading ...</div>;
+    }
+
+    if (error) {
+      return <div className="results__error">{error}</div>;
+    }
 
     return (
       <div className="results">

@@ -27,7 +27,7 @@ export class App extends React.Component {
   };
 
   handleSearchClick = async () => {
-    try{
+    try {
       this.setState({
         loading: true,
         // musíme vyresetovat chybu z předchozích stahování
